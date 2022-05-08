@@ -1,0 +1,26 @@
+<?php
+
+namespace App\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpClient\HttpClient;
+
+class LuckyController extends AbstractController
+{
+    public function ApiGet(): Response{
+        
+        $client = HttpClient::create();
+
+        $response = $client->request(
+            'GET',
+            'https://localhost:5001/api/users/1'
+        );
+        
+        $content = json_decode($response->getContent(), true);
+
+        return $this->render('api.html.twig', [
+            'content' => $content[0]
+        ]);
+    }
+}

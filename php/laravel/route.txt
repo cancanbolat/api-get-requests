@@ -1,0 +1,10 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ApiGetController;
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get("/apiget", [ApigetController::class, 'get']);

@@ -1,0 +1,3 @@
+api_get:
+    path: /api
+    controller: App\Controller\LuckyController::apiget

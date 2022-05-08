@@ -1,0 +1,10 @@
+ {{content["firstName"]}}
+        {{content["lastName"]}}
+        {{content["userName"]}}
+        {{content["avatar"]}}
+        {{content["email"]}}
+        {{content["phone"]}}
+        {{content["city"]}}
+        {{content["street"]}}
+        {{content["suite"]}}
+        <!-- dateofbirth -->

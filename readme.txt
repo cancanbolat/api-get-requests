@@ -1,0 +1,1 @@
+## Simple Api GET Requests. Using [My fake data api](https://github.com/cancanbolat/fake-data-api).

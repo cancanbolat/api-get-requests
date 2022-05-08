@@ -1,0 +1,25 @@
+from flask import Flask, render_template
+import requests
+import json
+
+app = Flask(__name__)
+
+@app.route('/')
+def get_users():
+    r = requests.get("https://localhost:5001/api/users/1", verify=False)
+    jsonvalue = r.json()
+
+    dateofbirth = jsonvalue[0]['dateOfBirth']
+
+    user = {
+        'name': jsonvalue[0]['firstName'],
+        'lastName': jsonvalue[0]['lastName'],
+        'userName': jsonvalue[0]['userName'],
+        'avatar': jsonvalue[0]['avatar'],
+        'email': jsonvalue[0]['email'],
+        'phone': jsonvalue[0]['phone'],
+        'city': jsonvalue[0]['city'],
+        'street': jsonvalue[0]['street'],
+        'suite': jsonvalue[0]['suite']
+    }
+    return render_template('index.html', values=user)

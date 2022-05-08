@@ -1,0 +1,21 @@
+import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
+import { ClipboardService } from 'ngx-clipboard'
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+
+  user;
+
+  url = "https://localhost:5001/api/users/1";
+
+  constructor(private http: HttpClient, private clipboard: ClipboardService) {
+    http.get(this.url).subscribe(response => {
+      this.user = response
+    })
+
+  }
